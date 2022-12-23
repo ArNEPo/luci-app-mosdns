@@ -1,0 +1,19 @@
+17 lines (15 sloc)  272 Bytes
+
+name: Sync Fork
+
+on:
+  schedule:
+    - cron: 0 9 * * TUE,FRI
+  watch:
+    types: [started]
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: tgymnich/fork-sync@v1.6.3
+        with:
+          owner: sbwml
+          base: master
+          head: master
